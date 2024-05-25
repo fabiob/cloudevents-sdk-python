@@ -30,7 +30,7 @@ jobs:
     if: github.event_name == 'push'
     needs: [ build_dist ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Set up Python
@@ -40,7 +40,7 @@ jobs:
           cache: 'pip'
       - name: Install build dependencies
         run: pip install -U setuptools wheel build
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           # unpacks default artifact into dist/
           # if `name: artifact` is omitted, the action will create extra parent dir
